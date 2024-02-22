@@ -1,27 +1,44 @@
 # Help Anonymous
 
-## Team Members
-- Ashaba Joshua Jasper
-- Sengooba Nabil
-- Karongo Kansiime
-- Okello Nahum
-- Namale Lisa Amanda
+![Help Anonymous Logo](Help%20Anonymous%20NEW.jpg)
+
+## Team Members and Roles
+- **Ashaba Joshua Jasper** - Project Manager & Lead Developer
+- **Sengooba Nabil** - Frontend Developer & UI/UX Designer
+- **Karongo Kansiime** - Marketing & Outreach Coordinator
+- **Okello Nahum** - Backend Developer & Data Security Specialist
+- **Namale Lisa Amanda** - Quality Assurance Lead & User Support
 
 ## Project Overview
-We have chosen to embark on the project titled "Help Anonymous." This innovative platform is intricately aligned with two of the United Nations' Sustainable Development Goals (SDGs):
+"Help Anonymous" is a pioneering digital platform focused on providing anonymous mental health support. It aligns with the United Nations' Sustainable Development Goals (SDGs), particularly SDG 3 (Good Health and Well-being) and SDG 10 (Reduced Inequalities). Our mission is to offer a safe, inclusive, and accessible environment for individuals to discuss mental health concerns, obtain support, and access educational resources.
 
-1. **Good Health and Well-being (SDG 3):**  
-   With our flagship feature of anonymous peer-to-peer chat, we aim to foster a supportive environment where individuals can freely share and receive feedback on their mental and emotional concerns. The self-assessment tools further empower users to understand and take charge of their mental well-being, pushing the boundaries of traditional mental health platforms.
+## Project Description
+Our platform features anonymous peer-to-peer chat, AI-driven self-assessment tools, and a comprehensive directory of mental health professionals. It is designed to break down barriers in seeking mental health support, such as stigma and accessibility issues. We aim to democratize mental health knowledge and support, making it available to everyone, everywhere.
 
-2. **Reduced Inequalities (SDG 10):**  
-   By making this platform accessible to all, and enriched with educational content on mental health, "Help Anonymous" seeks to democratize access to mental health insights and support, reducing disparities in knowledge and resource availability.
+## Technologies Used
+- **Frontend**: React Native, Flutter for cross-platform app development
+- **Backend**: Node.js with Express.js, MongoDB for database management
+- **UI/UX Design**: Figma, Adobe XD
+- **Security**: Implementing JWT for secure authentication, SSL encryption
+- **Project Management Tools**: Trello, GitHub
 
-Our unwavering focus on these two SDGs drives our mission: to profoundly impact individual mental well-being while championing broader societal access to essential mental health resources.
+## Key Features
+- Anonymous Chat
+- Self-Assessment Questionnaires
+- Professional Therapist Directories
+- Community Support Forums
+- Educational Mental Health Resources
 
 ## Project Links
-
 - [Wireframe](https://miro.com/app/board/uXjVNYK3vIg=/?share_link_id=60019202211)
 - [Figma Prototype](https://www.figma.com/file/S77tnlx4MdtpRc1D9rnOoh/Help-Anonymous-V.1?type=design&node-id=7%3A2&mode=design&t=tzXRI5whagJjsKaZ-1)
 - [Trello Board](https://trello.com/invite/b/C1LJUyhd/ATTIde5dfe02c2951657642d3580b9bfc534DB94264C/software-project-phase-1)
 - [Live Landing Page](https://helpanonymouslandingpage.netlify.app/)
+
+## Download the App
+Scan this QR code to download the 'Help Anonymous' app:
+
+  
+![QR Code](Download%20HA%20App.png)
+
 

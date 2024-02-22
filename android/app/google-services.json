@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "73112639542",
+    "project_id": "help-anonymous-app",
+    "storage_bucket": "help-anonymous-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73112639542:android:dade9507945ecfe51de097",
+        "android_client_info": {
+          "package_name": "com.mycompany.helpanonymousapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73112639542-s8in0a2fiqfpvrv3dctlnv1kvb8d9ujf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.helpanonymousapp",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "73112639542-a1sa6bgtatotfv6lto9jur302a3uo0sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkfdmze1cwAzaQFErTy-rCNA5COBc7QeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73112639542-a1sa6bgtatotfv6lto9jur302a3uo0sa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "73112639542-pj478nrtscuc4g5eibk9bq7661ni44fa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.helpanonymousapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

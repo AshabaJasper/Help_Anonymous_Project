@@ -3,42 +3,63 @@
 ![Help Anonymous Logo](Help%20Anonymous%20NEW.jpg)
 
 ## Team Members and Roles
-- **Ashaba Joshua Jasper** - Project Manager & Lead Developer
-- **Sengooba Nabil** - Frontend Developer & UI/UX Designer
-- **Karongo Kansiime** - Marketing & Outreach Coordinator
-- **Okello Nahum** - Backend Developer & Data Security Specialist
-- **Namale Lisa Amanda** - Quality Assurance Lead & User Support
+- **Ashaba Joshua Jasper** - Project Manager & Lead Developer: Manages project direction and oversees development.
+- **Okello Nahum** - Frontend Developer & UI/UX Designer: Focuses on crafting user interfaces and enhancing user experience.
+- **Sengooba Nabil** - Backend Developer: Implements backend logic and ensures integration with Firebase services.
+- **Karongo Kansiime Keron** - Marketing & Outreach Coordinator: Handles outreach, engagement strategies, and manages social media presence.
+- **Namale Elizabeth Amanda** - Quality Assurance Lead: Conducts thorough testing to ensure app reliability and user satisfaction.
+- **Gensi Collin** - Community Manager: Engages with the user community, moderates forums, and gathers user feedback.
 
 ## Project Overview
-"Help Anonymous" is a pioneering digital platform focused on providing anonymous mental health support. It aligns with the United Nations' Sustainable Development Goals (SDGs), particularly SDG 3 (Good Health and Well-being) and SDG 10 (Reduced Inequalities). Our mission is to offer a safe, inclusive, and accessible environment for individuals to discuss mental health concerns, obtain support, and access educational resources.
-
-## Project Description
-Our platform features anonymous peer-to-peer chat, AI-driven self-assessment tools, and a comprehensive directory of mental health professionals. It is designed to break down barriers in seeking mental health support, such as stigma and accessibility issues. We aim to democratize mental health knowledge and support, making it available to everyone, everywhere.
+"Help Anonymous" is a digital platform aimed at providing anonymous support for individuals dealing with mental health issues. The project aligns with SDG 3 (Good Health and Well-being) and SDG 10 (Reduced Inequalities), employing cutting-edge technology to offer a safe, engaging, and supportive environment for users.
 
 ## Technologies Used
-- **Frontend**: React Native, Flutter for cross-platform app development
-- **Backend**: Node.js with Express.js, MongoDB for database management
-- **UI/UX Design**: Figma, Adobe XD
-- **Security**: Implementing JWT for secure authentication, SSL encryption
-- **Project Management Tools**: Trello, GitHub
+- **Flutter**: For cross-platform mobile application development, ensuring a unified user experience.
+- **Firebase**: Utilizes Firebase Auth for authentication, Firestore for real-time database, and Firebase Machine Learning for intelligent features.
+- **Figma**: For UI/UX design, creating intuitive and accessible app interfaces.
+- **Slack**: Facilitates team communication and collaboration throughout the development process.
+- **Trello**: Manages project tasks, milestones, and tracks development progress.
+- **GitHub**: For version control, hosting code, and facilitating collaborative development.
 
 ## Key Features
-- Anonymous Chat
-- Self-Assessment Questionnaires
-- Professional Therapist Directories
-- Community Support Forums
-- Educational Mental Health Resources
+- **Anonymous Chat**: Secure chat rooms where users can share and discuss anonymously.
+- **Match & Connect**: AI-driven system using Firebase Machine Learning to connect users with similar experiences.
+- **Self-Assessment Tools**: Interactive assessments to help users understand their mental state.
+- **Shared Experience Forums**: Community forums for sharing experiences, including polls for community decision-making.
+- **Progress Tracker**: Tracks users' mental health progress over time.
+- **Helper AI Chat**: Provides instant support and guidance through an AI chatbot.
+
+## Running the Code
+
+### Prerequisites
+- Flutter installed on your machine.
+- Access to Firebase and configuration of Firebase services in your Flutter project.
+
+## Running the Code
+
+### Prerequisites
+- Ensure you have Flutter installed on your machine. For Flutter installation instructions, visit [Flutter's official documentation](https://flutter.dev/docs/get-started/install).
+
+### Installation and Running
+1. Clone the repository:
+   `git clone https://github.com/AshabaJasper/Help_Anonymous_Project.git`
+2. Navigate to the project directory:
+   `cd Help_Anonymous_Project`
+3. Install dependencies:
+   `flutter pub get`
+4. Run the app:
+   `flutter run`
 
 ## Project Links
 - [Wireframe](https://miro.com/app/board/uXjVNYK3vIg=/?share_link_id=60019202211)
-- [Figma Prototype](https://www.figma.com/file/S77tnlx4MdtpRc1D9rnOoh/Help-Anonymous-V.1?type=design&node-id=7%3A2&mode=design&t=tzXRI5whagJjsKaZ-1)
-- [Trello Board](https://trello.com/invite/b/C1LJUyhd/ATTIde5dfe02c2951657642d3580b9bfc534DB94264C/software-project-phase-1)
+- [Figma Prototype](https://www.figma.com/file/xl8l3mC9cy97zU3npFTUF5/Help-Anonymous?type=design&node-id=0-1&mode=design&t=IzMCuOTjUYuC3bnc-0)
+- [GitHub Repository](https://github.com/AshabaJasper/Help_Anonymous_Project)
 - [Live Landing Page](https://helpanonymouslandingpage.netlify.app/)
+- [Trello Board](https://trello.com/invite/b/C1LJUyhd/ATTIde5dfe02c2951657642d3580b9bfc534DB94264C/software-project-phase-1)
 
 ## Download the App
-Scan this QR code to download the 'Help Anonymous' app:
+To download the 'Help Anonymous' app, scan the QR code below:
 
-  
-![QR Code](Download%20HA%20App.png)
+![QR Code for App Download](Download%20HA%20App.png)
 
-
+   

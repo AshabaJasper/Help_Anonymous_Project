@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'edit_profile_auth2_widget.dart' show EditProfileAuth2Widget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -18,21 +17,16 @@ class EditProfileAuth2Model extends FlutterFlowModel<EditProfileAuth2Widget> {
   FocusNode? yourNameFocusNode;
   TextEditingController? yourNameController;
   String? Function(BuildContext, String?)? yourNameControllerValidator;
-  // State field(s) for myBio widget.
-  FocusNode? myBioFocusNode;
-  TextEditingController? myBioController;
-  String? Function(BuildContext, String?)? myBioControllerValidator;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     yourNameFocusNode?.dispose();
     yourNameController?.dispose();
-
-    myBioFocusNode?.dispose();
-    myBioController?.dispose();
   }
 
   /// Action blocks are added here.

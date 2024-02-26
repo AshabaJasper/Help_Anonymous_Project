@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,10 +13,10 @@ import 'auth2_edit_profile_model.dart';
 export 'auth2_edit_profile_model.dart';
 
 class Auth2EditProfileWidget extends StatefulWidget {
-  const Auth2EditProfileWidget({Key? key}) : super(key: key);
+  const Auth2EditProfileWidget({super.key});
 
   @override
-  _Auth2EditProfileWidgetState createState() => _Auth2EditProfileWidgetState();
+  State<Auth2EditProfileWidget> createState() => _Auth2EditProfileWidgetState();
 }
 
 class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
@@ -54,6 +53,9 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
     super.initState();
     _model = createModel(context, () => Auth2EditProfileModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'auth_2_EditProfile'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -66,15 +68,6 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -124,7 +117,7 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                     ),
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-1.00, 1.00),
+                    alignment: AlignmentDirectional(-1.0, 1.0),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 24.0),
@@ -140,6 +133,9 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                           size: 24.0,
                         ),
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'AUTH_2_EDIT_PROFILE_arrow_back_rounded_I');
+                          logFirebaseEvent('IconButton_navigate_back');
                           context.safePop();
                         },
                       ),
@@ -150,7 +146,7 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                   animationsMap['containerOnPageLoadAnimation']!),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, -1.00),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: double.infinity,
                 constraints: BoxConstraints(
@@ -166,6 +162,9 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                     title: 'Edit Profile',
                     confirmButtonText: 'Save Changes',
                     navigateAction: () async {
+                      logFirebaseEvent(
+                          'AUTH_2_EDIT_PROFILE_Container_xbod3mpw_C');
+                      logFirebaseEvent('editProfile_auth_2_navigate_back');
                       context.safePop();
                     },
                   ),

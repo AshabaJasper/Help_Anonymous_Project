@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_profile_auth2_model.dart';
@@ -13,20 +12,19 @@ export 'edit_profile_auth2_model.dart';
 
 class EditProfileAuth2Widget extends StatefulWidget {
   const EditProfileAuth2Widget({
-    Key? key,
+    super.key,
     String? title,
     String? confirmButtonText,
     required this.navigateAction,
   })  : this.title = title ?? 'Edit Profile',
-        this.confirmButtonText = confirmButtonText ?? 'Save Changes',
-        super(key: key);
+        this.confirmButtonText = confirmButtonText ?? 'Save Changes';
 
   final String title;
   final String confirmButtonText;
-  final Future<dynamic> Function()? navigateAction;
+  final Future Function()? navigateAction;
 
   @override
-  _EditProfileAuth2WidgetState createState() => _EditProfileAuth2WidgetState();
+  State<EditProfileAuth2Widget> createState() => _EditProfileAuth2WidgetState();
 }
 
 class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
@@ -43,13 +41,12 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
     super.initState();
     _model = createModel(context, () => EditProfileAuth2Model());
 
-    _model.yourNameController ??=
-        TextEditingController(text: currentUserDisplayName);
+    _model.yourNameController ??= TextEditingController(
+        text: valueOrDefault<String>(
+      currentUserDisplayName,
+      'Helper001',
+    ));
     _model.yourNameFocusNode ??= FocusNode();
-
-    _model.myBioController ??= TextEditingController(
-        text: valueOrDefault(currentUserDocument?.shortDescription, ''));
-    _model.myBioFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -142,81 +139,26 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
-            child: AuthUserStreamWidget(
-              builder: (context) => TextFormField(
-                controller: _model.myBioController,
-                focusNode: _model.myBioFocusNode,
-                textCapitalization: TextCapitalization.sentences,
-                obscureText: false,
-                decoration: InputDecoration(
-                  labelText: 'Enter a short description ',
-                  labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                  hintText: 'A little about you and your mental health state',
-                  hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                  errorStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).error,
-                      ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: FlutterFlowTheme.of(context).alternate,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: FlutterFlowTheme.of(context).primary,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: FlutterFlowTheme.of(context).error,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: FlutterFlowTheme.of(context).error,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  filled: true,
-                  fillColor: FlutterFlowTheme.of(context).primaryBackground,
-                  contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
-                ),
-                style: FlutterFlowTheme.of(context).bodyMedium,
-                textAlign: TextAlign.start,
-                maxLines: 3,
-                cursorColor: FlutterFlowTheme.of(context).primary,
-                validator: _model.myBioControllerValidator.asValidator(context),
-              ),
-            ),
-          ),
           Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  logFirebaseEvent('EDIT_PROFILE_AUTH_2_Button-Login_ON_TAP');
+                  logFirebaseEvent('Button-Login_validate_form');
                   if (_model.formKey.currentState == null ||
                       !_model.formKey.currentState!.validate()) {
                     return;
                   }
                   // updateUserInfo
+                  logFirebaseEvent('Button-Login_updateUserInfo');
 
                   await currentUserReference!.update(createUsersRecordData(
                     displayName: _model.yourNameController.text,
-                    shortDescription: _model.myBioController.text,
                     lastActiveTime: getCurrentTimestamp,
                   ));
+                  logFirebaseEvent('Button-Login_show_snack_bar');
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
@@ -230,7 +172,9 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
                       backgroundColor: FlutterFlowTheme.of(context).primary,
                     ),
                   );
+                  logFirebaseEvent('Button-Login_execute_callback');
                   await widget.navigateAction?.call();
+                  logFirebaseEvent('Button-Login_navigate_to');
 
                   context.pushNamed('SelfAssesmentList');
                 },

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,10 +12,10 @@ import 'auth2_create_profile_model.dart';
 export 'auth2_create_profile_model.dart';
 
 class Auth2CreateProfileWidget extends StatefulWidget {
-  const Auth2CreateProfileWidget({Key? key}) : super(key: key);
+  const Auth2CreateProfileWidget({super.key});
 
   @override
-  _Auth2CreateProfileWidgetState createState() =>
+  State<Auth2CreateProfileWidget> createState() =>
       _Auth2CreateProfileWidgetState();
 }
 
@@ -68,6 +67,9 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
     super.initState();
     _model = createModel(context, () => Auth2CreateProfileModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'auth_2_createProfile'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -80,15 +82,6 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -106,7 +99,7 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
               end: AlignmentDirectional(-0.87, 1.0),
             ),
           ),
-          alignment: AlignmentDirectional(0.00, -1.00),
+          alignment: AlignmentDirectional(0.0, -1.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -120,7 +113,7 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                     ),
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
@@ -133,8 +126,7 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Container(
                     width: double.infinity,
                     constraints: BoxConstraints(
@@ -161,6 +153,10 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
                           title: 'Create Profile',
                           confirmButtonText: 'Save & Continue',
                           navigateAction: () async {
+                            logFirebaseEvent(
+                                'AUTH_2_CREATE_PROFILE_Container_05593vam');
+                            logFirebaseEvent('editProfile_auth_2_navigate_to');
+
                             context.pushNamed('auth_2_Profile');
                           },
                         ),

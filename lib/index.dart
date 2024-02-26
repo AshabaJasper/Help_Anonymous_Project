@@ -13,10 +13,23 @@ export '/account_profile_creation/auth_2_profile/auth2_profile_widget.dart'
     show Auth2ProfileWidget;
 export '/account_profile_creation/auth_2_edit_profile/auth2_edit_profile_widget.dart'
     show Auth2EditProfileWidget;
-export '/chat_group_chat/chat_main/chat_main_widget.dart' show ChatMainWidget;
-export '/chat_group_chat/chat_details/chat_details_widget.dart'
-    show ChatDetailsWidget;
-export '/chat_group_chat/chat_invite_users/chat_invite_users_widget.dart'
-    show ChatInviteUsersWidget;
 export '/onboarding/onboarding/onboarding_widget.dart' show OnboardingWidget;
-export '/quizpageone/quizpageone_widget.dart' show QuizpageoneWidget;
+export '/chat_g_p_t_component/chat_ai_screen/chat_ai_screen_widget.dart'
+    show ChatAiScreenWidget;
+export '/chat_groupwbubbles/chat_2_details/chat2_details_widget.dart'
+    show Chat2DetailsWidget;
+export '/chat_groupwbubbles/chat_2_main/chat2_main_widget.dart'
+    show Chat2MainWidget;
+export '/chat_groupwbubbles/chat_2_invite_users/chat2_invite_users_widget.dart'
+    show Chat2InviteUsersWidget;
+export '/chat_groupwbubbles/image_details/image_details_widget.dart'
+    show ImageDetailsWidget;
+export '/daily_quiz/daily_quiz_widget.dart' show DailyQuizWidget;
+export '/daily_quiz2/daily_quiz2_widget.dart' show DailyQuiz2Widget;
+export '/daily_quiz3/daily_quiz3_widget.dart' show DailyQuiz3Widget;
+export '/uploadresults/uploadresults_widget.dart' show UploadresultsWidget;
+export '/educational_content/educational_content_widget.dart'
+    show EducationalContentWidget;
+export '/notifications_messages/notifications_messages_widget.dart'
+    show NotificationsMessagesWidget;
+export '/groups/groups_widget.dart' show GroupsWidget;

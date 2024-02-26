@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,10 +14,10 @@ import 'auth2_login_model.dart';
 export 'auth2_login_model.dart';
 
 class Auth2LoginWidget extends StatefulWidget {
-  const Auth2LoginWidget({Key? key}) : super(key: key);
+  const Auth2LoginWidget({super.key});
 
   @override
-  _Auth2LoginWidgetState createState() => _Auth2LoginWidgetState();
+  State<Auth2LoginWidget> createState() => _Auth2LoginWidgetState();
 }
 
 class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
@@ -69,6 +68,8 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
     super.initState();
     _model = createModel(context, () => Auth2LoginModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'auth_2_Login'});
     _model.emailAddressController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
 
@@ -87,15 +88,6 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -122,7 +114,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
               end: AlignmentDirectional(-0.87, 1.0),
             ),
           ),
-          alignment: AlignmentDirectional(0.00, -1.00),
+          alignment: AlignmentDirectional(0.0, -1.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -136,7 +128,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                     ),
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
@@ -149,8 +141,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Container(
                     width: double.infinity,
                     constraints: BoxConstraints(
@@ -168,10 +159,9 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 32.0, 32.0, 32.0),
+                        padding: EdgeInsets.all(32.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -330,6 +320,9 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                   0.0, 0.0, 0.0, 16.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'AUTH_2_LOGIN_PAGE_SIGN_IN_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_auth');
                                   GoRouter.of(context).prepareAuthEvent();
 
                                   final user =
@@ -343,7 +336,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                   }
 
                                   context.goNamedAuth(
-                                      'chat_Main', context.mounted);
+                                      'SelfAssesmentList', context.mounted);
                                 },
                                 text: 'Sign In',
                                 options: FFButtonOptions(
@@ -370,7 +363,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 24.0),
@@ -387,6 +380,9 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                   0.0, 0.0, 0.0, 16.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'AUTH_2_LOGIN_CONTINUE_WITH_GOOGLE_BTN_ON');
+                                  logFirebaseEvent('Button_auth');
                                   GoRouter.of(context).prepareAuthEvent();
                                   final user = await authManager
                                       .signInWithGoogle(context);
@@ -395,7 +391,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                   }
 
                                   context.goNamedAuth(
-                                      'chat_Main', context.mounted);
+                                      'SelfAssesmentList', context.mounted);
                                 },
                                 text: 'Continue with Google',
                                 icon: FaIcon(
@@ -437,6 +433,9 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'AUTH_2_LOGIN_CONTINUE_WITH_APPLE_BTN_ON_');
+                                        logFirebaseEvent('Button_auth');
                                         GoRouter.of(context).prepareAuthEvent();
                                         final user = await authManager
                                             .signInWithApple(context);
@@ -444,8 +443,8 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                           return;
                                         }
 
-                                        context.goNamedAuth(
-                                            'chat_Main', context.mounted);
+                                        context.goNamedAuth('SelfAssesmentList',
+                                            context.mounted);
                                       },
                                       text: 'Continue with Apple',
                                       icon: FaIcon(
@@ -486,7 +485,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
 
                             // You will have to add an action on this rich text to go to your login page.
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 12.0, 0.0, 12.0),
@@ -496,6 +495,10 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    logFirebaseEvent(
+                                        'AUTH_2_LOGIN_RichText_z5ngwnc9_ON_TAP');
+                                    logFirebaseEvent('RichText_navigate_to');
+
                                     context.pushNamed(
                                       'auth_2_Create',
                                       extra: <String, dynamic>{
@@ -542,6 +545,10 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                   0.0, 16.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'AUTH_2_LOGIN_FORGOT_PASSWORD?_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_navigate_to');
+
                                   context.pushNamed('auth_2_ForgotPassword');
                                 },
                                 text: 'Forgot password?',

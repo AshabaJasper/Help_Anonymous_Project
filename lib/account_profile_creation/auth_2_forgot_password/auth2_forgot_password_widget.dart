@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,10 +13,10 @@ import 'auth2_forgot_password_model.dart';
 export 'auth2_forgot_password_model.dart';
 
 class Auth2ForgotPasswordWidget extends StatefulWidget {
-  const Auth2ForgotPasswordWidget({Key? key}) : super(key: key);
+  const Auth2ForgotPasswordWidget({super.key});
 
   @override
-  _Auth2ForgotPasswordWidgetState createState() =>
+  State<Auth2ForgotPasswordWidget> createState() =>
       _Auth2ForgotPasswordWidgetState();
 }
 
@@ -69,6 +68,8 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
     super.initState();
     _model = createModel(context, () => Auth2ForgotPasswordModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'auth_2_ForgotPassword'});
     _model.emailAddressController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
 
@@ -84,15 +85,6 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -110,7 +102,7 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
               end: AlignmentDirectional(-0.87, 1.0),
             ),
           ),
-          alignment: AlignmentDirectional(0.00, -1.00),
+          alignment: AlignmentDirectional(0.0, -1.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -124,7 +116,7 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                     ),
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
@@ -137,8 +129,7 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Container(
                     width: double.infinity,
                     constraints: BoxConstraints(
@@ -156,7 +147,7 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             32.0, 20.0, 32.0, 32.0),
@@ -182,6 +173,10 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
                                     size: 24.0,
                                   ),
                                   onPressed: () async {
+                                    logFirebaseEvent(
+                                        'AUTH_2_FORGOT_PASSWORD_arrow_back_rounde');
+                                    logFirebaseEvent(
+                                        'IconButton_navigate_back');
                                     context.safePop();
                                   },
                                 ),
@@ -272,6 +267,9 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
                                   0.0, 0.0, 0.0, 16.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'AUTH_2_FORGOT_PASSWORD_SEND_RESET_LINK_B');
+                                  logFirebaseEvent('Button_auth');
                                   if (_model
                                       .emailAddressController.text.isEmpty) {
                                     ScaffoldMessenger.of(context).showSnackBar(

@@ -8,6 +8,8 @@ import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -90,6 +92,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'SelfAssesmentList',
           path: '/selfAssesmentList',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'SelfAssesmentList')
               : SelfAssesmentListWidget(),
@@ -124,33 +127,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'auth_2_EditProfile',
           path: '/auth2EditProfile',
-          builder: (context, params) => Auth2EditProfileWidget(),
-        ),
-        FFRoute(
-          name: 'chat_Main',
-          path: '/chatMain',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'chat_Main')
-              : ChatMainWidget(),
-        ),
-        FFRoute(
-          name: 'chat_Details',
-          path: '/chatDetails',
-          asyncParams: {
-            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-          },
-          builder: (context, params) => ChatDetailsWidget(
-            chatRef: params.getParam('chatRef', ParamType.Document),
-          ),
-        ),
-        FFRoute(
-          name: 'chat_InviteUsers',
-          path: '/chatInviteUsers',
-          asyncParams: {
-            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-          },
-          builder: (context, params) => ChatInviteUsersWidget(
-            chatRef: params.getParam('chatRef', ParamType.Document),
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: Auth2EditProfileWidget(),
           ),
         ),
         FFRoute(
@@ -159,11 +138,107 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => OnboardingWidget(),
         ),
         FFRoute(
-          name: 'Quizpageone',
-          path: '/quizpageone',
-          builder: (context, params) => QuizpageoneWidget(),
+          name: 'chat_ai_Screen',
+          path: '/chatAiScreen',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'chat_ai_Screen')
+              : ChatAiScreenWidget(),
+        ),
+        FFRoute(
+          name: 'chat_2_Details',
+          path: '/chat2Details',
+          asyncParams: {
+            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+          },
+          builder: (context, params) => Chat2DetailsWidget(
+            chatRef: params.getParam('chatRef', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'chat_2_main',
+          path: '/chat2Main',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'chat_2_main')
+              : Chat2MainWidget(),
+        ),
+        FFRoute(
+          name: 'chat_2_InviteUsers',
+          path: '/chat2InviteUsers',
+          asyncParams: {
+            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+          },
+          builder: (context, params) => Chat2InviteUsersWidget(
+            chatRef: params.getParam('chatRef', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'image_Details',
+          path: '/imageDetails',
+          asyncParams: {
+            'chatMessage':
+                getDoc(['chat_messages'], ChatMessagesRecord.fromSnapshot),
+          },
+          builder: (context, params) => ImageDetailsWidget(
+            chatMessage: params.getParam('chatMessage', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'DailyQuiz',
+          path: '/dailyQuiz',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: DailyQuizWidget(),
+          ),
+        ),
+        FFRoute(
+          name: 'DailyQuiz2',
+          path: '/dailyQuiz2',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: DailyQuiz2Widget(),
+          ),
+        ),
+        FFRoute(
+          name: 'DailyQuiz3',
+          path: '/dailyQuiz3',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: DailyQuiz3Widget(),
+          ),
+        ),
+        FFRoute(
+          name: 'uploadresults',
+          path: '/uploadresults',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: UploadresultsWidget(),
+          ),
+        ),
+        FFRoute(
+          name: 'Educational_Content',
+          path: '/educationalContent',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Educational_Content')
+              : EducationalContentWidget(),
+        ),
+        FFRoute(
+          name: 'notifications_messages',
+          path: '/notificationsMessages',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: NotificationsMessagesWidget(),
+          ),
+        ),
+        FFRoute(
+          name: 'Groups',
+          path: '/groups',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: GroupsWidget(),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -333,6 +408,7 @@ class FFRoute {
           return null;
         },
         pageBuilder: (context, state) {
+          fixStatusBarOniOS16AndBelow(context);
           final ffParams = FFParameters(state, asyncParams);
           final page = ffParams.hasFutures
               ? FutureBuilder(
@@ -348,7 +424,7 @@ class FFRoute {
                     fit: BoxFit.none,
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition
@@ -356,13 +432,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },

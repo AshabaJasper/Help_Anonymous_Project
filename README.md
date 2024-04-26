@@ -10,6 +10,7 @@
 - **Namale Elizabeth Amanda** - Quality Assurance Lead: Conducts thorough testing to ensure app reliability and user satisfaction.
 - **Gensi Collin** - Community Manager: Engages with the user community, moderates forums, and gathers user feedback.
 
+
 ## Project Overview
 "Help Anonymous" is a digital platform aimed at providing anonymous support for individuals dealing with mental health issues. The project aligns with SDG 3 (Good Health and Well-being) and SDG 10 (Reduced Inequalities), employing cutting-edge technology to offer a safe, engaging, and supportive environment for users.
 
